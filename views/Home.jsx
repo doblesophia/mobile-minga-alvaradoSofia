@@ -3,7 +3,7 @@ import { ImageBackground, Text, View, StyleSheet, TextInput, Button, TouchableOp
 
 const image = {uri:'https://upload.wikimedia.org/wikipedia/en/5/5d/Alice_in_Borderland_cover.jpeg'}
 
-const Home = () => {
+const Home = (props) => {
   return (
     <ImageBackground source={image} style={styles.container}>
     <View style={styles.minga}>
@@ -22,7 +22,7 @@ const Home = () => {
             <Text style={styles.textButton}>Sign In!</Text>
         </TouchableOpacity>
         <Text style={styles.correo}>you don't have an account yet?</Text>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity onPress={()=>props.navigation.navigate('Register')} style={styles.button}>
             <Text style={styles.textButton}>Register</Text>
         </TouchableOpacity>
         
