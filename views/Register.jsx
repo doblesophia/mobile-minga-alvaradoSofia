@@ -3,7 +3,7 @@ import { View, StyleSheet, ImageBackground, Text, TextInput, TouchableOpacity } 
 
 const image= {uri: 'https://los40.cl/wp-content/uploads/2021/11/eren-jaeger-nueva-foto-temporada-final-shingeki-no-kyojin-1.jpg'}
 
-const Register = () => {
+const Register = (props) => {
   return (
     
         <ImageBackground source={image} style={styles.container}>
@@ -28,7 +28,7 @@ const Register = () => {
         </TouchableOpacity>
     </View>
     <View style={styles.sign}>
-        <Text style={styles.textSign}> Do you have an account?<Text style={styles.signIn}>Sign In</Text></Text>
+        <Text style={styles.textSign}> Do you have an account?<TouchableOpacity onPress={()=>props.navigation.navigate('Home')}><Text style={styles.textSign}>Sign In</Text></TouchableOpacity></Text>
         
     </View>
    
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         
     },
     textButton:{
-        color: 'white',
+        color: 'black',
         fontWeight: 'bold',
         textAlign: 'center',
 

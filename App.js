@@ -1,3 +1,4 @@
+import React, {useEffect, useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Home from './views/Home';
@@ -6,21 +7,26 @@ import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Mangas from './views/Mangas';
+import  store  from './redux/store.js';
+import { Provider } from 'react-redux';
+import storage from './utils/asyncStorage.js'
+import { DrawerNavigator } from './components/DrawerNavigator';
 
-const Drawer = createDrawerNavigator();
-const Stack = createStackNavigator();
+
+
 {/* <View style={styles.container}>
       <Register/>
       <StatusBar style="auto" translucent={false} backgroundColor='white' />
     </View> */}
 export default function App() {
+ 
   return (
-    <NavigationContainer>
-    <Drawer.Navigator>
-      <Drawer.Screen name='Home' component={Home}/>
-      <Drawer.Screen name='Register' component = {Register}/>
-    </Drawer.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+    
+    <DrawerNavigator/>
+    
+    </Provider>
   );
 }
 
